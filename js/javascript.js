@@ -1,30 +1,46 @@
 
-const card1 = document.getElementById("1");
-const card2 = document.getElementById("2");
-const card3 = document.getElementById("3");
-const card4 = document.getElementById("4");
-const card5 = document.getElementById("5");
-const card6 = document.getElementById("6");
 const cards = document.querySelectorAll('.card');
 let open_cards = document.querySelectorAll(".is_flipped");
 const card_back = document.querySelectorAll('.card_back > img');
+let select1 = "";
+let select2 = "";
 
 
 [...cards].forEach((card)=>{
   card.addEventListener( 'click', function() {
     card.classList.toggle('is_flipped');
     open_cards = document.querySelectorAll(".is_flipped");
-    console.log(open_cards.length)
+    if (select1 == ""){
+        select1 = card;
+    }
+    else{
+        select2 = card;
+    }
+    console.log(cards[html_cards[0]]);
+
     if (open_cards.length > 1){
         setTimeout(function() {
             for (const x of cards)
             x.classList.remove('is_flipped');
+            select1 = select2 = "";
         }, 2000);
     }
+
     if (open_cards.length > 2){
             for (const x of cards)
             x.classList.remove('is_flipped');
+            select1 = select2 = "";
     }  
+
+    if (select1 == cards[html_cards[0]] || select1 == cards[html_cards[1]]){
+        if ((select2 == cards[html_cards[0]] || select2 == cards[html_cards[1]]) && select2 != select1){
+            setTimeout(function() {
+                select1.remove(); 
+                select2.remove();
+                select1 = select2 = "";
+            }, 1000);
+        }
+    }
   });
 });
 
