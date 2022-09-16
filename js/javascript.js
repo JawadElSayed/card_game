@@ -14,3 +14,12 @@ const cards = document.querySelectorAll('.card');
   });
 });
 
+// random number function
+const randomNum = (max, used) => {
+    let newNum = Math.floor(Math.random() * max + 1);
+   
+    if(used.includes(newNum)){
+        return randomNum(max,used);
+    }
+    return newNum;
+}
