@@ -47,7 +47,7 @@
     transition: transform 1s;
 }
 
-.card.is-flipped {
+.card.is_flipped {
     transform: translateX(-100%) rotateY(-180deg);
 }
 
